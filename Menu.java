@@ -5,9 +5,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
@@ -28,6 +30,9 @@ public class Menu implements Initializable{
     private Button Settings;
     @FXML
     private Button Exit;
+    @FXML
+    AnchorPane anchorPane;
+    Stage stage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         file = new File("background.mp4");
@@ -66,5 +71,9 @@ public class Menu implements Initializable{
             Exit.setUnderline(false);
         else if(!Exit.isUnderline())
             Exit.setUnderline(true);
+    }
+    public void Exit(ActionEvent event){
+        stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
     }
 }
