@@ -1,11 +1,7 @@
 
 .button {
-    -fx-background-color: #245da8;
-    -fx-text-fill: #0e0536;
-     -fx-opacity: 0.7;
-}
-.toggle-button {
-    -fx-background-color: #245da8; /* Default background color */
+-fx-background-color: #245da8; /* Default background color */
+    /*-fx-font-family: "Mistral";*/
     -fx-text-fill: white;         /* Text color */
     -fx-font-size: 14px;          /* Font size */
     -fx-padding: 10px 20px;       /* Padding inside the button */
@@ -13,17 +9,11 @@
     -fx-border-width: 2px;        /* Border width */
     -fx-border-radius: 10px;      /* Rounded borders */
     -fx-background-radius: 10px; /* Rounded background */
-    -fx-cursor: hand;             /* Pointer cursor on hover */
+    -fx-cursor: hand;
 }
-
-.toggle-button:selected {
+.button:hover{
     -fx-background-color: #123456; /* Darker background when selected */
     -fx-text-fill: #ffcc00;        /* Text color when selected */
-    -fx-border-color: #ffcc00;     /* Border color when selected */
-}
-
-.toggle-button:hover {
-    -fx-background-color: #1d4f91; /* Lighter background on hover */
-    -fx-border-color: #00aaff;     /* Lighter border color on hover */
-    -fx-text-fill: #00aaff;        /* Lighter text color on hover */
+    -fx-border-color: #ffcc00;
+    -fx-underline :true;
 }
