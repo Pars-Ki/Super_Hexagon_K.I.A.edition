@@ -51,24 +51,24 @@
             <Bloom threshold="0.11" />
          </effect>
       </Label>
-      <Button fx:id="Play" layoutX="236.0" layoutY="234.0" mnemonicParsing="false" onMouseEntered="#PlaysetUnerline" onMouseExited="#PlaysetUnerline" prefHeight="57.0" prefWidth="808.0" text="Play" textAlignment="CENTER" textFill="#5a3fe1">
+      <Button fx:id="Play" layoutX="236.0" layoutY="234.0" mnemonicParsing="false" onAction="#goToPlay" onMouseEntered="#PlaysetUnerline" onMouseExited="#PlaysetUnerline" prefHeight="57.0" prefWidth="808.0" text="Play" textAlignment="CENTER" textFill="#5a3fe1">
          <font>
-            <Font name="Broadway" size="30.0" />
+            <Font name="Mistral" size="29.0" />
          </font>
       </Button>
-      <Button fx:id="History" layoutX="237.0" layoutY="317.0" mnemonicParsing="false" onMouseEntered="#HistorysetUnerline" onMouseExited="#HistorysetUnerline" prefHeight="57.0" prefWidth="808.0" text="History" textAlignment="CENTER" textFill="#5a3fe1">
+      <Button fx:id="History" layoutX="237.0" layoutY="317.0" mnemonicParsing="false" onAction="#goToHistory" onMouseEntered="#HistorysetUnerline" onMouseExited="#HistorysetUnerline" prefHeight="57.0" prefWidth="808.0" text="History" textAlignment="CENTER" textFill="#5a3fe1">
          <font>
-            <Font name="Broadway" size="30.0" />
+            <Font name="Mistral" size="29.0" />
          </font>
       </Button>
-      <Button fx:id="Settings" layoutX="237.0" layoutY="401.0" mnemonicParsing="false" onMouseEntered="#SettingssetUnerline" onMouseExited="#SettingssetUnerline" prefHeight="57.0" prefWidth="808.0" text="Settings" textAlignment="CENTER" textFill="#5a3fe1">
+      <Button fx:id="Settings" layoutX="237.0" layoutY="401.0" mnemonicParsing="false" onAction="#goToSettings" onMouseEntered="#SettingssetUnerline" onMouseExited="#SettingssetUnerline" prefHeight="57.0" prefWidth="808.0" text="Settings" textAlignment="CENTER" textFill="#5a3fe1">
          <font>
-            <Font name="Broadway" size="30.0" />
+            <Font name="Mistral" size="29.0" />
          </font>
       </Button>
       <Button fx:id="Exit" layoutX="553.0" layoutY="519.0" mnemonicParsing="false" onAction="#Exit" onMouseEntered="#ExitsetUnerline" onMouseExited="#ExitsetUnerline" prefHeight="57.0" prefWidth="176.0" text="Exit" textAlignment="CENTER" textFill="#5a3fe1">
          <font>
-            <Font name="Broadway" size="30.0" />
+            <Font name="Mistral" size="29.0" />
          </font>
       </Button>
    </children>
