@@ -22,11 +22,11 @@ public class Game {
     Timeline timeline = new Timeline();
     Polygon CenterHexagon = new Polygon();
     private Label timerLabel = new Label();
-    private double timeElapsed = 0;
+    public double timeElapsed = 0;
     private double Speed = 1;
     private Random random = new Random();
-    private int b = 100;
     private int a = 50;
+    private int b = 100;
     private int x;
 
     private int c = 400;
@@ -84,8 +84,8 @@ public class Game {
         KeyFrame keyFrame = new KeyFrame(Duration.millis(5), e -> {
             if (b <= 50){
                 mavane1=new ArrayList<Polygon>();
-                a = 950;
-                b = 1000;
+                a = 1100;
+                b = 1150;
                 if (random.nextInt(2)==1){
                     x = random.nextInt(2);
                     mavane1=shapes.mane2(a,b,x);
@@ -107,8 +107,8 @@ public class Game {
 
             if (d <= 50){
                 mavane2=new ArrayList<Polygon>();
-                c = 950;
-                d = 1000;
+                c = 1100;
+                d = 1150;
                 if (random.nextInt(2)==1){
                     y = random.nextInt(2);
                     mavane2=shapes.mane2(c,d,y);
@@ -131,8 +131,8 @@ public class Game {
 
             if (g <= 50){
                 mavane3=new ArrayList<Polygon>();
-                f = 950;
-                g = 1000;
+                f = 1100;
+                g = 1150;
                 if (random.nextInt(2)==1){
                     z = random.nextInt(2);
                     mavane3=shapes.mane2(f,g,z);
@@ -160,7 +160,7 @@ public class Game {
         timeline.getKeyFrames().add(keyFrame);
         timeline.play();
 
-        KeyFrame speedchanger = new KeyFrame(Duration.seconds(5), e-> {
+        KeyFrame speedchanger = new KeyFrame(Duration.seconds(10), e-> {
             Speed+=0.25;
         });
         Timeline Speedchanger = new Timeline(speedchanger);
@@ -174,10 +174,15 @@ public class Game {
         Timeline timer = new Timeline(new KeyFrame(Duration.seconds(0.01), e -> {
             timeElapsed += 0.01;
             timerLabel.setText("Time: " + timeElapsed + "s");
+            if (isCollisionDetected(player.mahlar,mavane1))
+                System.out.println("game over");
+            if (isCollisionDetected(player.mahlar,mavane2))
+                System.out.println("game over");
+            if (isCollisionDetected(player.mahlar,mavane3))
+                System.out.println("game over");
         }));
         timer.setCycleCount(Timeline.INDEFINITE);
         timer.play();
-
         gamePane.getChildren().add(group);
         gamePane.getChildren().add(timerLabel);
         initializeMouseHandlers();
@@ -191,6 +196,16 @@ public class Game {
                 player.rotate(-30);
             }
         });
+    }
+
+    public static boolean isCollisionDetected(Polygon mahlar, ArrayList<Polygon> mavaneList) {
+            for (Polygon obstacle : mavaneList) {
+                Shape intersection = Shape.intersect(mahlar, obstacle);
+                if (intersection.getBoundsInLocal().getWidth() > 0 || intersection.getBoundsInLocal().getHeight() > 0) {
+                    return true;
+                }
+            }
+            return false;
     }
 
 
