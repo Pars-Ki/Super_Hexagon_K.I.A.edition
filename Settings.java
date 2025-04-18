@@ -40,13 +40,6 @@ public class Settings implements Initializable {
         }
     }
 
-    private void toggleUnderlineAndEffect(Button button) {
-        button.setUnderline(!button.isUnderline());
-        button.setEffect(button.getEffect() == null ? dropShadow : null);
-    }
-    public void backdropshodow(MouseEvent e){
-        toggleUnderlineAndEffect(back);
-    }
     public void mute(ActionEvent event){
         MediaManager.getMediaPlayer().setMute(MediaManager.getMediaPlayer().isMute() ? false : true);
     }

@@ -61,9 +61,10 @@ public class Menu implements Initializable {
     }
 
     public void goToPlay(ActionEvent event) {
+        Game game = new Game();
         stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(Game.getScene());
+        stage.setScene(game.getScene());
         stage.show();
-
+        game.startGame();
     }
 }
