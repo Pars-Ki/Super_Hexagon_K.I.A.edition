@@ -3,6 +3,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Shapes {
     public static int neww=0;
@@ -149,6 +150,96 @@ public class Shapes {
                 0.5 * b, Math.sqrt(3) / 2 * b,
                 0.5 * a, Math.sqrt(3) / 2 * a
         );
+    }
+
+    public ArrayList<Polygon> mane1 (double a, double b, int j){
+        ArrayList<Polygon> mane = new ArrayList<Polygon>();
+        mane.add(obstacle1(1000,950));
+        mane.add(obstacle2(1000,950));
+        mane.add(obstacle3(1000,950));
+        mane.add(obstacle4(1000,950));
+        mane.add(obstacle5(1000,950));
+        mane.add(obstacle6(1000,950));
+
+        mane.remove(j);
+
+        return mane;
+    }
+
+    public ArrayList<Polygon> mane2 (double a, double b, int j){
+        ArrayList<Polygon> mane = new ArrayList<Polygon>();
+        mane.add(obstacle1(1000,950));
+        mane.add(obstacle2(1000,950));
+        mane.add(obstacle3(1000,950));
+        mane.add(obstacle4(1000,950));
+        mane.add(obstacle5(1000,950));
+        mane.add(obstacle6(1000,950));
+
+        mane.remove(j);
+        mane.remove(j+1);
+        mane.remove(j+2);
+
+        return mane;
+    }
+
+
+    public void TransferMane (double a, double b, ArrayList<Polygon> mane, int j){
+        if(mane.size() == 3){
+            if (j==1){
+                Shape1SetPoint(a,b,mane.get(0));
+                Shape3SetPoint(a,b,mane.get(1));
+                Shape5SetPoint(a,b,mane.get(2));
+            }
+            else{
+                Shape2SetPoint(a,b,mane.get(0));
+                Shape4SetPoint(a,b,mane.get(1));
+                Shape6SetPoint(a,b,mane.get(2));
+            }
+        }
+        else {
+            if(j==0){
+                Shape2SetPoint(a,b,mane.get(0));
+                Shape3SetPoint(a,b,mane.get(1));
+                Shape4SetPoint(a,b,mane.get(2));
+                Shape5SetPoint(a,b,mane.get(3));
+                Shape6SetPoint(a,b,mane.get(4));
+            }
+            else if(j==1){
+                Shape1SetPoint(a,b,mane.get(0));
+                Shape3SetPoint(a,b,mane.get(1));
+                Shape4SetPoint(a,b,mane.get(2));
+                Shape5SetPoint(a,b,mane.get(3));
+                Shape6SetPoint(a,b,mane.get(4));
+            }
+            else if(j==2){
+                Shape1SetPoint(a,b,mane.get(0));
+                Shape2SetPoint(a,b,mane.get(1));
+                Shape4SetPoint(a,b,mane.get(2));
+                Shape5SetPoint(a,b,mane.get(3));
+                Shape6SetPoint(a,b,mane.get(4));
+            }
+            else if(j==3){
+                Shape1SetPoint(a,b,mane.get(0));
+                Shape2SetPoint(a,b,mane.get(1));
+                Shape3SetPoint(a,b,mane.get(2));
+                Shape5SetPoint(a,b,mane.get(3));
+                Shape6SetPoint(a,b,mane.get(4));
+            }
+            else if(j==4){
+                Shape1SetPoint(a,b,mane.get(0));
+                Shape2SetPoint(a,b,mane.get(1));
+                Shape3SetPoint(a,b,mane.get(2));
+                Shape4SetPoint(a,b,mane.get(3));
+                Shape6SetPoint(a,b,mane.get(4));
+            }
+            else if(j==5){
+                Shape1SetPoint(a,b,mane.get(0));
+                Shape2SetPoint(a,b,mane.get(1));
+                Shape3SetPoint(a,b,mane.get(2));
+                Shape4SetPoint(a,b,mane.get(3));
+                Shape5SetPoint(a,b,mane.get(4));
+            }
+        }
     }
 
 
