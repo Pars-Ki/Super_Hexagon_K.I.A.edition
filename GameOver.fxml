@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="447.0" layoutY="104.0" prefHeight="211.0" prefWidth="387.0" text="Game Over" textFill="#c91010">
+         <font>
+            <Font name="Rage Italic" size="96.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,6 +1,8 @@
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseButton;
@@ -10,6 +12,7 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -22,6 +25,7 @@ public class Game {
     Timeline timeline = new Timeline();
     Polygon CenterHexagon = new Polygon();
     private Label timerLabel = new Label();
+    Parent root;
     public double timeElapsed = 0;
     private double Speed = 1;
     private Random random = new Random();
@@ -42,6 +46,13 @@ public class Game {
     private ArrayList<Polygon> mavane3 = new ArrayList<Polygon>();
     ArrayList<Polygon> BackgroundPolygons= new ArrayList<>();
     public Game() {
+        try {
+            root = FXMLLoader.load(getClass().getResource("Gameover.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
         BackgroundPolygons.add(shapes.obstacle1(50,1000));
         BackgroundPolygons.add(shapes.obstacle2(50,1000));
         BackgroundPolygons.add(shapes.obstacle3(50,1000));
@@ -174,15 +185,30 @@ public class Game {
         Timeline timer = new Timeline(new KeyFrame(Duration.seconds(0.01), e -> {
             timeElapsed += 0.01;
             timerLabel.setText("Time: " + timeElapsed + "s");
-            if (isCollisionDetected(player.mahlar,mavane1))
-                System.out.println("game over");
-            if (isCollisionDetected(player.mahlar,mavane2))
-                System.out.println("game over");
-            if (isCollisionDetected(player.mahlar,mavane3))
-                System.out.println("game over");
         }));
         timer.setCycleCount(Timeline.INDEFINITE);
         timer.play();
+
+        Timeline collisinchecker = new Timeline(new KeyFrame(Duration.seconds(0.01), e -> {
+            if (isCollisionDetected(player.mahlar,mavane1)) {
+                gamePane.getChildren().add(root);
+                timeline.stop();
+                timer.stop();
+            }
+            if (isCollisionDetected(player.mahlar,mavane2)) {
+                gamePane.getChildren().add(root);
+                timeline.stop();
+                timer.stop();
+            }
+            if (isCollisionDetected(player.mahlar,mavane3)) {
+                gamePane.getChildren().add(root);
+                timeline.stop();
+                timer.stop();
+            }
+        }));
+        collisinchecker.setCycleCount(Timeline.INDEFINITE);
+        collisinchecker.play();
+
         gamePane.getChildren().add(group);
         gamePane.getChildren().add(timerLabel);
         initializeMouseHandlers();
